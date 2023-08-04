@@ -9,18 +9,21 @@ setResult((num)=> num + value)
   const deleteResult = () =>{
    setResult('')
   }  
-  const amountInpust= () =>{
+  // const amountInpust= () =>{
+  //   try {
+  //     setResult(eval(result).toString());
+  //   } catch (error) {
+  //     ('Error');
+  //   }
+  // }
+  const amountInpust = () => {
     try {
-      const result = eval(result);
-      if (isNaN(result)) {
-        setResult('Error');
-      } else {
-        setResult(result.toString());
-      }
+      const evaluatedResult = eval(result).toString();
+      setResult(evaluatedResult);
     } catch (error) {
-      setResult('Error');
+      setResult('Error: Expresión inválida');
     }
-  }
+  };
   return (
     <>
     <input type="text" value={result} readOnly/>
